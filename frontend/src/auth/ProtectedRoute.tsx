@@ -4,17 +4,17 @@ import Layout from "../layouts/layout";
 import LoadingAnimation from "../components/LoadingAnimation";
 
 const ProtectedRoute = () => {
-	const { isAuthenticated, isLoading } = useAuth0();
+  const { isAuthenticated, isLoading } = useAuth0();
 
-	if (isLoading) {
-		return (
-			<Layout>
-				<LoadingAnimation />
-			</Layout>
-		);
-	}
+  if (isLoading) {
+    return (
+      <Layout>
+        <LoadingAnimation />
+      </Layout>
+    );
+  }
 
-	return isAuthenticated ? <Outlet /> : <Navigate to="/" replace />;
+  return isAuthenticated ? <Outlet /> : <Navigate to="/" replace />;
 };
 
 export default ProtectedRoute;
